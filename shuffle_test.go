@@ -9,8 +9,8 @@ import (
 
 type fixedSrc struct{}
 
-func (_ fixedSrc) Int63() int64 { return 4 } // chosen by fair dice roll
-func (_ fixedSrc) Seed(_ int64) {}
+func (fixedSrc) Int63() int64 { return 4 } // chosen by fair dice roll
+func (fixedSrc) Seed(_ int64) {}
 
 func init() {
 	rnd = rand.New(fixedSrc{}) // override default rand source
